@@ -1,1 +1,361 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Benedicto Villar - Delta Star Inc.</title>
+    <!-- Tipografía corporativa limpia -->
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800&family=Open+Sans:wght@400;600&display=swap" rel="stylesheet">
+    <!-- Iconos FontAwesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        :root {
+            --ds-navy: #0e2338;
+            --ds-blue: #1e5288;
+            --ds-accent-blue: #2264a8;
+            --text-dark: #1f2937;
+            --text-gray: #4b5563;
+            --bg-light: #f8fafc;
+        }
 
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            font-family: 'Open Sans', sans-serif;
+        }
+
+        body {
+            background-color: #0b131e;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            padding: 15px;
+        }
+
+        /* Tarjeta principal */
+        .card-container {
+            width: 100%;
+            max-width: 850px;
+            background-color: #ffffff;
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.6);
+            display: flex;
+            flex-direction: column;
+        }
+
+        /* Cuerpo superior (Split Layout) */
+        .card-body {
+            display: flex;
+            flex-direction: row;
+            min-height: 380px;
+            position: relative;
+        }
+
+        /* Columna Izquierda: Información */
+        .info-section {
+            flex: 1.2;
+            padding: 35px 30px 25px 40px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            z-index: 2;
+            background: #ffffff;
+        }
+
+        .logo-container {
+            margin-bottom: 25px;
+        }
+
+        .logo-text {
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 800;
+            font-size: 1.8rem;
+            color: var(--ds-navy);
+            letter-spacing: 1px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .logo-subtitle {
+            font-size: 0.65rem;
+            font-weight: 700;
+            letter-spacing: 1.5px;
+            color: var(--ds-blue);
+            margin-top: -2px;
+            text-transform: uppercase;
+        }
+
+        .user-name {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 2rem;
+            font-weight: 700;
+            color: var(--ds-navy);
+            line-height: 1.1;
+        }
+
+        .user-role {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 1.15rem;
+            font-weight: 500;
+            color: var(--ds-navy);
+            margin-top: 4px;
+        }
+
+        .divider-line {
+            width: 45px;
+            height: 3px;
+            background-color: var(--ds-accent-blue);
+            margin: 12px 0;
+        }
+
+        .user-desc {
+            font-size: 0.95rem;
+            color: var(--text-gray);
+            margin-bottom: 25px;
+        }
+
+        .contact-list {
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+        }
+
+        .contact-item {
+            display: flex;
+            align-items: center;
+            gap: 14px;
+            text-decoration: none;
+            color: var(--text-dark);
+            font-size: 0.92rem;
+            font-weight: 600;
+        }
+
+        .contact-icon {
+            width: 32px;
+            height: 32px;
+            background-color: var(--ds-navy);
+            color: #ffffff;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 0.85rem;
+            flex-shrink: 0;
+        }
+
+        /* Columna Derecha: Imagen del Transformador */
+        .image-section {
+            flex: 1;
+            position: relative;
+            background: url('https://images.unsplash.com/photo-1581092335397-9583fe92d232?q=80&w=1000&auto=format&fit=crop') center/cover no-repeat;
+            clip-path: polygon(15% 0, 100% 0, 100% 100%, 0 100%);
+            margin-left: -40px;
+        }
+
+        .image-overlay {
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(135deg, rgba(30, 82, 136, 0.4) 0%, rgba(14, 35, 56, 0.7) 100%);
+        }
+
+        /* Footer Inferior Oscuro */
+        .card-footer {
+            background-color: var(--ds-navy);
+            padding: 20px 30px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            color: #ffffff;
+            gap: 15px;
+        }
+
+        .footer-buttons {
+            display: flex;
+            align-items: center;
+            gap: 30px;
+            flex: 1;
+        }
+
+        .footer-btn {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            text-decoration: none;
+            color: #ffffff;
+            transition: opacity 0.2s;
+        }
+
+        .footer-btn:hover {
+            opacity: 0.85;
+        }
+
+        .footer-btn-icon {
+            font-size: 2rem;
+        }
+
+        .footer-btn-text h4 {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 0.95rem;
+            font-weight: 700;
+        }
+
+        .footer-btn-text p {
+            font-size: 0.75rem;
+            color: #94a3b8;
+        }
+
+        .footer-divider {
+            width: 1px;
+            height: 35px;
+            background-color: rgba(255, 255, 255, 0.2);
+        }
+
+        .qr-box {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            background: rgba(255, 255, 255, 0.05);
+            padding: 8px 12px;
+            border-radius: 8px;
+        }
+
+        .qr-code-img {
+            width: 70px;
+            height: 70px;
+            background: #ffffff;
+            padding: 4px;
+            border-radius: 6px;
+        }
+
+        .qr-text {
+            font-size: 0.65rem;
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 700;
+            letter-spacing: 0.5px;
+            color: #e2e8f0;
+            line-height: 1.2;
+            text-transform: uppercase;
+        }
+
+        /* Adaptabilidad Móvil */
+        @media (max-width: 700px) {
+            .card-body {
+                flex-direction: column;
+            }
+            .image-section {
+                height: 200px;
+                clip-path: none;
+                margin-left: 0;
+            }
+            .info-section {
+                padding: 25px 20px;
+            }
+            .card-footer {
+                flex-direction: column;
+                align-items: stretch;
+                gap: 20px;
+            }
+            .footer-buttons {
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 15px;
+            }
+            .footer-divider {
+                display: none;
+            }
+            .qr-box {
+                justify-content: center;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="card-container">
+        <!-- Parte Superior -->
+        <div class="card-body">
+            <!-- Columna Datos -->
+            <div class="info-section">
+                <div class="logo-container">
+                    <div class="logo-text">
+                        <i class="fa-solid fa-delta" style="color: var(--ds-blue);"></i> DELTA STAR <span style="font-size: 0.9rem; font-weight: 600;">INC.</span>
+                    </div>
+                    <div class="logo-subtitle">TRANSFORMATEURS / POWER TRANSFORMERS</div>
+                </div>
+
+                <h1 class="user-name">Benedicto Villar</h1>
+                <h2 class="user-role">Internal Design Team Leader</h2>
+                <div class="divider-line"></div>
+                <p class="user-desc">Power Transformer Design & Engineering</p>
+
+                <div class="contact-list">
+                    <a href="tel:+14388331890" class="contact-item">
+                        <div class="contact-icon"><i class="fa-solid fa-phone"></i></div>
+                        <span>+1 438 833 1890</span>
+                    </a>
+                    <a href="mailto:bvillar@deltastar.com" class="contact-item">
+                        <div class="contact-icon"><i class="fa-solid fa-envelope"></i></div>
+                        <span>bvillar@deltastar.com</span>
+                    </a>
+                    <div class="contact-item">
+                        <div class="contact-icon"><i class="fa-solid fa-location-dot"></i></div>
+                        <span>Montreal, Quebec, Canada</span>
+                    </div>
+                    <a href="https://linkedin.com/in/benedicto-villar-vargas" target="_blank" class="contact-item">
+                        <div class="contact-icon"><i class="fa-brands fa-linkedin-in"></i></div>
+                        <span>linkedin.com/in/benedicto-villar-vargas</span>
+                    </a>
+                </div>
+            </div>
+
+            <!-- Columna Imagen del Transformador -->
+            <div class="image-section">
+                <div class="image-overlay"></div>
+            </div>
+        </div>
+
+        <!-- Barra Inferior (Acciones Rápidas & QR) -->
+        <div class="card-footer">
+            <div class="footer-buttons">
+                <!-- Botón Guardar Contacto -->
+                <a href="contacto.vcf" download class="footer-btn">
+                    <div class="footer-btn-icon"><i class="fa-solid fa-address-card"></i></div>
+                    <div class="footer-btn-text">
+                        <h4>Save Contact</h4>
+                        <p>Add me to your contacts</p>
+                    </div>
+                </a>
+
+                <div class="footer-divider"></div>
+
+                <!-- Botón LinkedIn -->
+                <a href="https://linkedin.com/in/benedicto-villar-vargas" target="_blank" class="footer-btn">
+                    <div class="footer-btn-icon"><i class="fa-brands fa-linkedin"></i></div>
+                    <div class="footer-btn-text">
+                        <h4>Connect on LinkedIn</h4>
+                        <p>Let's stay in touch</p>
+                    </div>
+                </a>
+            </div>
+
+            <!-- Código QR -->
+            <div class="qr-box">
+                <img id="qr-img" class="qr-code-img" src="" alt="QR Code">
+                <div class="qr-text">
+                    SCAN TO<br>VIEW MY<br>DIGITAL CARD
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Genera el código QR automáticamente hacia la URL actual
+        document.getElementById('qr-img').src = 
+            'https://api.qrserver.com/v1/create-qr-code/?size=150x150&data=' + encodeURIComponent(window.location.href);
+    </script>
+</body>
+</html>
