@@ -1,0 +1,21 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 200" width="100%" height="100%">
+  <g stroke="#0284c7" stroke-width="1" fill="none" opacity="0.15">
+    <!-- Núcleo magnético -->
+    <rect x="50" y="30" width="300" height="140" rx="5" stroke-dasharray="4 2"/>
+    <rect x="110" y="60" width="70" height="80"/>
+    <rect x="220" y="60" width="70" height="80"/>
+    
+    <!-- Devanados / Windings Esquemáticos -->
+    <path d="M 75,60 C 90,60 90,140 75,140" stroke="#d97706" stroke-width="2"/>
+    <path d="M 85,60 C 100,60 100,140 85,140" stroke="#d97706" stroke-width="2"/>
+    
+    <path d="M 195,60 C 210,60 210,140 195,140" stroke="#d97706" stroke-width="2"/>
+    <path d="M 205,60 C 220,60 220,140 205,140" stroke="#d97706" stroke-width="2"/>
+    
+    <path d="M 315,60 C 330,60 330,140 315,140" stroke="#d97706" stroke-width="2"/>
+    <path d="M 325,60 C 340,60 340,140 325,140" stroke="#d97706" stroke-width="2"/>
+
+    <!-- Líneas de flujo electromagnético -->
+    <path d="M 20,100 L 380,100" stroke-dasharray="2 4"/>
+  </g>
+</svg>
